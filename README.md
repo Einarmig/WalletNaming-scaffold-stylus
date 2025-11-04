@@ -2,9 +2,6 @@
 
 A decentralized wallet naming system built with **Arbitrum Stylus** (Rust smart contracts) and **Next.js**. Set human-readable names for your wallet and transfer tokens by alias instead of addresses.
 
-![Arbitrum Sepolia](https://img.shields.io/badge/Arbitrum-Sepolia-blue)
-![Stylus](https://img.shields.io/badge/Stylus-Rust-orange)
-![Next.js](https://img.shields.io/badge/Next.js-15-black)
 
 ---
 
@@ -20,27 +17,24 @@ A decentralized wallet naming system built with **Arbitrum Stylus** (Rust smart 
 
 ### Key Decisions
 
-**1. Arbitrum Stylus (Rust) over Solidity**
-- Leveraged Rust for improved performance and memory safety
-- WASM compilation provides better gas efficiency
-- Type safety at compile-time reduces runtime errors
 
-**2. Bidirectional Mapping Architecture**
+
+**1. Bidirectional Mapping Architecture**
 - Implemented `HashMap<Address, String>` and `HashMap<String, Address>`
 - Ensures O(1) lookups for both name→address and address→name queries
 - Name uniqueness enforced at contract level
 
-**3. ERC20 Approval Flow**
+**2. ERC20 Approval Flow**
 - Custom `useTokenApproval` hook manages approval state
 - Prevents transaction failures by checking allowances first
 - Auto-detects when approval is needed
 
-**4. Real-Time Price Integration**
+**3. Real-Time Price Integration**
 - Chainlink Data Feeds for ARB/USD and ETH/USD
 - `useChainlinkBtcUsdFeed` and `useChainlinkEthUsdFeed` custom hooks
 - Displays token balances with live USD valuations
 
-**5. Access Control via Name Ownership**
+**4. Access Control via Name Ownership**
 - Balance dashboard only accessible after setting a wallet name
 - Encourages user registration before full feature access
 - Enhances UX by creating a personalized experience
@@ -56,19 +50,6 @@ A decentralized wallet naming system built with **Arbitrum Stylus** (Rust smart 
 - **Name Management**: Change or release your registered name
 - **Responsive UI**: Mobile-friendly with gradient design system
 
----
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| **Smart Contract** | Rust, Arbitrum Stylus, Cargo Stylus CLI |
-| **Frontend** | Next.js 14 (App Router), TypeScript, TailwindCSS |
-| **Web3** | RainbowKit, Wagmi v2, Viem |
-| **Oracle** | Chainlink Price Feeds (ARB/USD, ETH/USD) |
-| **Network** | Arbitrum Sepolia Testnet |
-
----
 
 ## 📂 Project Structure
 
